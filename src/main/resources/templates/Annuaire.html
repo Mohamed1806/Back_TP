@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>annuaire</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<div class="divTable">
+<div class="headRow">
+<div class="headCell">Id</div>
+<div class="headCell">Nom</div>
+<div class="headCell">Prenom</div>
+<div class="headCell">Telephone</div>
+<div class="headCell">Email</div>
+
+</div>
+
+<th:block th:each="entry: ${entries}">
+<div class="divRow">
+<div class="divCell" data-title="Id">
+<span th:text="${entry.getId()}"> Id </span>
+</div>
+<div class="divCell" data-title="Name">
+<span th:text="${entry.getNom()}"> Nom </span>
+</div>
+<div class="divCell" data-title="Prenom">
+<span th:text="${entry.getPrenom()}"> Prenom </span>
+</div>
+<div class="divCell" data-title="Phone">
+<span th:text="${entry.getTel()}"> Tel </span>
+</div>
+<div class="divCell" data-title="Email">
+<span th:text="${entry.getEmail()}"> Email </span>
+</div>
+</div>
+</th:block>
+
+<div class="leftBlock">
+Recherche :
+<form action="#" th:action="@{/annuaire}" method=
+"get">
+<p>
+Nom: <input type="text" name=
+"name" />
+</p>
+<p>
+<input type="submit" value=
+"Submit" />
+
+</p>
+</form>
+</div>
+
+</body>
+</html>
+
+
